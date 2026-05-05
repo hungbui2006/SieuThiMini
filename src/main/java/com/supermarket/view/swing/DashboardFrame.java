@@ -321,7 +321,7 @@ public class DashboardFrame extends JFrame {
         left.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         left.setForeground(new Color(130, 160, 210));
 
-        JLabel right = new JLabel("© 2025 Đại học Phenikaa — Quản lý Siêu thị Mini");
+        JLabel right = new JLabel("© 2026 Đại học Phenikaa — Quản lý Siêu thị Mini");
         right.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         right.setForeground(new Color(243, 112, 33, 150));
 
