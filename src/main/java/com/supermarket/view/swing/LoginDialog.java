@@ -80,7 +80,7 @@ public class LoginDialog extends JDialog {
         card.setOpaque(false);
         card.setPreferredSize(new Dimension(360, 480));
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-        card.setBorder(new EmptyBorder(36, 36, 28, 44));
+        card.setBorder(new EmptyBorder(36, 42, 28, 42));
 
         // ── Logo area ──────────────────────────────────────────────────────
         JPanel logoArea = new JPanel(new GridBagLayout());
@@ -131,13 +131,17 @@ public class LoginDialog extends JDialog {
         txtUsername = UIFactory.textField();
         txtUsername.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
         txtUsername.setAlignmentX(Component.LEFT_ALIGNMENT);
-        card.add(UIFactory.formRow("👤  Tên đăng nhập", txtUsername));
+        JPanel rowUser = UIFactory.formRow("👤  Tên đăng nhập", txtUsername);
+        rowUser.setAlignmentX(Component.CENTER_ALIGNMENT);
+        card.add(rowUser);
 
         // ── Password ───────────────────────────────────────────────────────
         txtPassword = UIFactory.passwordField();
         txtPassword.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
         txtPassword.setAlignmentX(Component.LEFT_ALIGNMENT);
-        card.add(UIFactory.formRow("🔒  Mật khẩu", txtPassword));
+        JPanel rowPass = UIFactory.formRow("🔒  Mật khẩu", txtPassword);
+        rowPass.setAlignmentX(Component.CENTER_ALIGNMENT);
+        card.add(rowPass);
 
         // ── Error label ────────────────────────────────────────────────────
         lblError = new JLabel(" ", SwingConstants.CENTER);
@@ -168,7 +172,7 @@ public class LoginDialog extends JDialog {
         btnLogin.setBorderPainted(false); btnLogin.setFocusPainted(false);
         btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnLogin.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
-        btnLogin.setAlignmentX(Component.LEFT_ALIGNMENT);
+        btnLogin.setAlignmentX(Component.CENTER_ALIGNMENT);
         card.add(btnLogin);
         card.add(Box.createVerticalStrut(16));
 
