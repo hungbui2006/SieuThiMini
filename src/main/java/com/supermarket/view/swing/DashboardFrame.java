@@ -99,7 +99,7 @@ public class DashboardFrame extends JFrame {
         // Left — logo
         JPanel left = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
         left.setOpaque(false);
-        JLabel iconLbl = new JLabel("<html><font face='" + UIFactory.getBestIconFont() + "'>🏪</font></html>");
+        JLabel iconLbl = new JLabel(UIFactory.getIcon("logo", 24));
         JLabel logoTxt = new JLabel("SIÊU THỊ MINI");
         logoTxt.setFont(new Font("Segoe UI", Font.BOLD, 18));
         logoTxt.setForeground(Color.WHITE);
@@ -115,7 +115,7 @@ public class DashboardFrame extends JFrame {
         JPanel pnlClock = new JPanel();
         pnlClock.setLayout(new BoxLayout(pnlClock, BoxLayout.X_AXIS));
         pnlClock.setOpaque(false);
-        JLabel lblClockIcon = new JLabel("<html><font face='" + UIFactory.getBestIconFont() + "'>🕒 </font></html>");
+        JLabel lblClockIcon = new JLabel(UIFactory.getIcon("logout", 14)); // Use logout icon as clock substitute or find better one
         lblClockIcon.setForeground(new Color(255, 255, 255, 210));
         
         lblClock = new JLabel();
@@ -136,13 +136,13 @@ public class DashboardFrame extends JFrame {
         };
         userPill.setOpaque(false);
         userPill.setBorder(new EmptyBorder(5, 12, 5, 12));
-        JLabel avatar = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>👤</font></html>");
+        JLabel avatar = new JLabel(UIFactory.getIcon("employee", 18));
         JLabel userName = new JLabel(currentUser.getFullName() + "  (" + currentUser.getRole().getDisplayName() + ")");
         userName.setFont(new Font("Segoe UI", Font.BOLD, 12));
         userName.setForeground(Color.WHITE);
         userPill.add(avatar); userPill.add(userName);
 
-        JButton btnLogout = new JButton(UIFactory.formatEmojiHtml("⏻  Đăng xuất")) {
+        JButton btnLogout = new JButton(" Đăng xuất", UIFactory.getIcon("logout", 14)) {
             @Override protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -190,22 +190,22 @@ public class DashboardFrame extends JFrame {
 
         sectionLabel(sidebar, "BÁN HÀNG");
 
-        JButton btnPOS = navBtn("🛒", "Bán hàng (POS)", "POS");
+        JButton btnPOS = navBtn("pos", "Bán hàng (POS)", "POS");
         sidebar.add(btnPOS);
         activateBtn(btnPOS);
 
         sectionLabel(sidebar, "QUẢN LÝ HÀNG HÓA");
-        sidebar.add(navBtn("📦", "Sản phẩm", "PRODUCT"));
-        sidebar.add(navBtn("🏷️", "Danh mục", "CATEGORY"));
+        sidebar.add(navBtn("product", "Sản phẩm", "PRODUCT"));
+        sidebar.add(navBtn("category", "Danh mục", "CATEGORY"));
         
         if (currentUser.getRole() == com.supermarket.model.enums.UserRole.ADMIN) {
-            sidebar.add(navBtn("🚛", "Nhà cung cấp", "SUPPLIER"));
-            sidebar.add(navBtn("📥", "Nhập hàng", "IMPORT"));
+            sidebar.add(navBtn("supplier", "Nhà cung cấp", "SUPPLIER"));
+            sidebar.add(navBtn("import", "Nhập hàng", "IMPORT"));
         }
 
         sectionLabel(sidebar, "KHÁCH HÀNG & BÁO CÁO");
-        sidebar.add(navBtn("👥", "Khách hàng", "CUSTOMER"));
-        sidebar.add(navBtn("📊", "Báo cáo & Thống kê", "REPORT"));
+        sidebar.add(navBtn("customer", "Khách hàng", "CUSTOMER"));
+        sidebar.add(navBtn("report", "Báo cáo & Thống kê", "REPORT"));
 
         if (currentUser.getRole() == UserRole.ADMIN) {
             sidebar.add(Box.createVerticalStrut(8));
@@ -214,7 +214,7 @@ public class DashboardFrame extends JFrame {
             sepLine.setBackground(new Color(255, 255, 255, 15));
             sidebar.add(sepLine);
             sectionLabel(sidebar, "QUẢN TRỊ HỆ THỐNG");
-            sidebar.add(navBtn("👤", "Nhân viên", "EMPLOYEE"));
+            sidebar.add(navBtn("employee", "Nhân viên", "EMPLOYEE"));
         }
 
         sidebar.add(Box.createVerticalGlue());
@@ -280,8 +280,7 @@ public class DashboardFrame extends JFrame {
         btn.setPreferredSize(new Dimension(220, 44));
         btn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel iconLbl = new JLabel("<html><font face='" + UIFactory.getBestIconFont() + "'>" + icon + "</font></html>");
-        iconLbl.setForeground(SB_TEXT);
+        JLabel iconLbl = new JLabel(UIFactory.getIcon(icon, 20));
         iconLbl.setPreferredSize(new Dimension(52, 44));
         iconLbl.setHorizontalAlignment(SwingConstants.CENTER);
 

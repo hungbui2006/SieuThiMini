@@ -13,6 +13,23 @@ import java.awt.geom.*;
  * Bảng màu: Xanh dương đậm (navy) + Cam (orange) theo nhận diện thương hiệu Phenikaa.
  */
 public class UIFactory {
+    
+    /**
+     * Loads an icon from resources and scales it.
+     */
+    public static ImageIcon getIcon(String name, int size) {
+        try {
+            java.net.URL imgUrl = UIFactory.class.getResource("/icons/" + name + ".png");
+            if (imgUrl != null) {
+                ImageIcon icon = new ImageIcon(imgUrl);
+                Image img = icon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH);
+                return new ImageIcon(img);
+            }
+        } catch (Exception e) {
+            System.err.println("Could not load icon: " + name);
+        }
+        return null;
+    }
 
     // ── PHENIKAA Palette ───────────────────────────────────────────────────
     public static final Color PRIMARY      = new Color(0, 51, 153);      // Phenikaa Navy Blue
