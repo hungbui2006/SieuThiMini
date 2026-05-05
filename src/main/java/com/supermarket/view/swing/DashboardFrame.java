@@ -99,8 +99,7 @@ public class DashboardFrame extends JFrame {
         // Left — logo
         JPanel left = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
         left.setOpaque(false);
-        JLabel iconLbl = new JLabel("🏪");
-        iconLbl.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 24));
+        JLabel iconLbl = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>🏪</font></html>");
         JLabel logoTxt = new JLabel("SIÊU THỊ MINI");
         logoTxt.setFont(new Font("Segoe UI", Font.BOLD, 18));
         logoTxt.setForeground(Color.WHITE);
@@ -116,8 +115,7 @@ public class DashboardFrame extends JFrame {
         JPanel pnlClock = new JPanel();
         pnlClock.setLayout(new BoxLayout(pnlClock, BoxLayout.X_AXIS));
         pnlClock.setOpaque(false);
-        JLabel lblClockIcon = new JLabel("🕒 ");
-        lblClockIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+        JLabel lblClockIcon = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>🕒 </font></html>");
         lblClockIcon.setForeground(new Color(255, 255, 255, 210));
         
         lblClock = new JLabel();
@@ -138,8 +136,7 @@ public class DashboardFrame extends JFrame {
         };
         userPill.setOpaque(false);
         userPill.setBorder(new EmptyBorder(5, 12, 5, 12));
-        JLabel avatar = new JLabel("👤");
-        avatar.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+        JLabel avatar = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>👤</font></html>");
         JLabel userName = new JLabel(currentUser.getFullName() + "  (" + currentUser.getRole().getDisplayName() + ")");
         userName.setFont(new Font("Segoe UI", Font.BOLD, 12));
         userName.setForeground(Color.WHITE);
@@ -155,7 +152,6 @@ public class DashboardFrame extends JFrame {
                 g2.dispose(); super.paintComponent(g);
             }
         };
-        btnLogout.setFont(new Font("Segoe UI Emoji", Font.BOLD, 12));
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setOpaque(false); btnLogout.setContentAreaFilled(false);
         btnLogout.setBorderPainted(false); btnLogout.setFocusPainted(false);
@@ -284,8 +280,7 @@ public class DashboardFrame extends JFrame {
         btn.setPreferredSize(new Dimension(220, 44));
         btn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel iconLbl = new JLabel("<html><font face='Segoe UI Emoji'>" + icon + "</font></html>");
-        iconLbl.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+        JLabel iconLbl = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>" + icon + "</font></html>");
         iconLbl.setForeground(SB_TEXT);
         iconLbl.setPreferredSize(new Dimension(52, 44));
         iconLbl.setHorizontalAlignment(SwingConstants.CENTER);

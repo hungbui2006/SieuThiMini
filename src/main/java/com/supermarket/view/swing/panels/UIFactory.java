@@ -67,7 +67,7 @@ public class UIFactory {
                 String leadingSpaces = text.substring(0, i).replace(" ", "&nbsp;");
                 String icon = text.substring(i, i + count);
                 String rest = text.substring(i + count).replace("  ", "&nbsp;&nbsp;");
-                return "<html>" + leadingSpaces + "<font face='Segoe UI Emoji'>" + icon + "</font><font face='Segoe UI'>" + rest + "</font></html>";
+                return "<html>" + leadingSpaces + "<font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>" + icon + "</font><font face='Segoe UI'>" + rest + "</font></html>";
             }
         }
         return text;
