@@ -173,10 +173,11 @@ public class LoginDialog extends JDialog {
         card.add(Box.createVerticalStrut(16));
 
         // ── Hint ───────────────────────────────────────────────────────────
-        JLabel hint = new JLabel("💡 Mặc định: admin/admin123 | Nhân viên: nv01/nv123", SwingConstants.CENTER);
+        JLabel hint = new JLabel("💡 Tài khoản: admin/admin123  |  nv01/nv123", SwingConstants.CENTER);
         hint.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         hint.setForeground(UIFactory.TEXT_GRAY);
         hint.setAlignmentX(Component.CENTER_ALIGNMENT);
+        hint.setMaximumSize(new Dimension(Integer.MAX_VALUE, 25));
         card.add(hint);
 
         // ── Close button ───────────────────────────────────────────────────
@@ -188,6 +189,7 @@ public class LoginDialog extends JDialog {
         btnClose.setBorderPainted(false); btnClose.setFocusPainted(false);
         btnClose.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnClose.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnClose.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
         btnClose.addActionListener(e -> dispose());
         card.add(btnClose);
 
