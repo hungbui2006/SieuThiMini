@@ -104,7 +104,7 @@ public class LoginDialog extends JDialog {
         iconCircle.setPreferredSize(new Dimension(72, 72));
         iconCircle.setMaximumSize(new Dimension(72, 72));
         iconCircle.setLayout(new GridBagLayout());
-        JLabel iconLbl = new JLabel("<html><font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>🏪</font></html>");
+        JLabel iconLbl = new JLabel("<html><font face='" + UIFactory.getBestIconFont() + "'>🏪</font></html>");
         iconLbl.setForeground(Color.WHITE);
         iconCircle.add(iconLbl);
 

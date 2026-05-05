@@ -55,7 +55,24 @@ public class UIFactory {
     public static final Font FONT_SMALL  = new Font("Segoe UI", Font.PLAIN, 11);
     public static final Font FONT_LABEL  = new Font("Segoe UI", Font.BOLD, 12);
 
-    // ── Emoji Formatter ────────────────────────────────────────────────────
+    private static String bestIconFont = null;
+    public static String getBestIconFont() {
+        if (bestIconFont != null) return bestIconFont;
+        // Font list order: Preferred → Fallback → Legacy
+        String[] fonts = {"Segoe UI Emoji", "Segoe UI Symbol", "Arial Unicode MS", "Symbola", "Lucida Sans Unicode"};
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String[] available = ge.getAvailableFontFamilyNames();
+        for (String f : fonts) {
+            for (String a : available) {
+                if (f.equalsIgnoreCase(a)) {
+                    bestIconFont = f;
+                    return f;
+                }
+            }
+        }
+        return "Serif"; 
+    }
+
     public static String formatEmojiHtml(String text) {
         if (text == null || text.isEmpty() || text.startsWith("<html>")) return text;
         int i = 0;
@@ -67,7 +84,7 @@ public class UIFactory {
                 String leadingSpaces = text.substring(0, i).replace(" ", "&nbsp;");
                 String icon = text.substring(i, i + count);
                 String rest = text.substring(i + count).replace("  ", "&nbsp;&nbsp;");
-                return "<html>" + leadingSpaces + "<font face='Segoe UI Emoji, Segoe UI Symbol, Symbola, Arial Unicode MS'>" + icon + "</font><font face='Segoe UI'>" + rest + "</font></html>";
+                return "<html>" + leadingSpaces + "<font face='" + getBestIconFont() + "'>" + icon + "</font><font face='Segoe UI'>" + rest + "</font></html>";
             }
         }
         return text;

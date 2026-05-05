@@ -32,8 +32,9 @@ if %ERRORLEVEL% NEQ 0 (
 )
 echo    OK - Compile done!
 
-echo [3/5] Copying classes...
+echo [3/5] Copying classes and resources...
 xcopy /s /q /y "%OUT_DIR%\*" "%BUILD_DIR%\" >nul
+if exist src\main\resources xcopy /s /q /y src\main\resources\* "%BUILD_DIR%\" >nul
 
 echo [4/5] Extracting Gson into build...
 cd "%BUILD_DIR%"
