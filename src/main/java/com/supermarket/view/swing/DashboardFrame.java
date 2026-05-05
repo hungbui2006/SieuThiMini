@@ -113,12 +113,19 @@ public class DashboardFrame extends JFrame {
         JPanel right = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 0));
         right.setOpaque(false);
 
+        JPanel pnlClock = new JPanel();
+        pnlClock.setLayout(new BoxLayout(pnlClock, BoxLayout.X_AXIS));
+        pnlClock.setOpaque(false);
+        JLabel lblClockIcon = new JLabel("🕒 ");
+        lblClockIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+        lblClockIcon.setForeground(new Color(255, 255, 255, 210));
+        
         lblClock = new JLabel();
-        lblClock.setFont(new Font(Font.MONOSPACED, Font.BOLD, 13));
+        lblClock.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
         lblClock.setForeground(new Color(255, 255, 255, 210));
-        lblClock.setPreferredSize(new Dimension(220, 32));
-        lblClock.setMinimumSize(new Dimension(220, 32));
-        lblClock.setHorizontalAlignment(SwingConstants.RIGHT);
+        
+        pnlClock.add(lblClockIcon);
+        pnlClock.add(lblClock);
 
         JPanel userPill = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 0)) {
             @Override protected void paintComponent(Graphics g) {
@@ -156,7 +163,7 @@ public class DashboardFrame extends JFrame {
         btnLogout.setBorder(new EmptyBorder(7, 16, 7, 16));
         btnLogout.addActionListener(e -> logout());
 
-        right.add(lblClock); right.add(userPill); right.add(btnLogout);
+        right.add(pnlClock); right.add(userPill); right.add(btnLogout);
 
         bar.add(left, BorderLayout.WEST);
         bar.add(right, BorderLayout.EAST);
@@ -335,13 +342,9 @@ public class DashboardFrame extends JFrame {
 
     private void startClock() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("HH:mm:ss");
-        Timer t = new Timer(1000, e -> {
-            String time = LocalTime.now().format(fmt);
-            lblClock.setText("<html><nobr><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + time + "</font></nobr></html>");
-        });
+        Timer t = new Timer(1000, e -> lblClock.setText(LocalTime.now().format(fmt)));
         t.start();
-        String initialTime = LocalTime.now().format(fmt);
-        lblClock.setText("<html><nobr><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + initialTime + "</font></nobr></html>");
+        lblClock.setText(LocalTime.now().format(fmt));
     }
 
     private void logout() {
