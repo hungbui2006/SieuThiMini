@@ -116,6 +116,7 @@ public class DashboardFrame extends JFrame {
         lblClock = new JLabel();
         lblClock.setFont(new Font("Segoe UI", Font.BOLD, 13));
         lblClock.setForeground(new Color(255, 255, 255, 210));
+        lblClock.setPreferredSize(new Dimension(140, 32));
 
         JPanel userPill = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 0)) {
             @Override protected void paintComponent(Graphics g) {
