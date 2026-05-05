@@ -114,9 +114,10 @@ public class DashboardFrame extends JFrame {
         right.setOpaque(false);
 
         lblClock = new JLabel();
-        lblClock.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
+        lblClock.setFont(new Font(Font.MONOSPACED, Font.BOLD, 13));
         lblClock.setForeground(new Color(255, 255, 255, 210));
-        lblClock.setPreferredSize(new Dimension(180, 32));
+        lblClock.setPreferredSize(new Dimension(220, 32));
+        lblClock.setMinimumSize(new Dimension(220, 32));
         lblClock.setHorizontalAlignment(SwingConstants.RIGHT);
 
         JPanel userPill = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 0)) {
@@ -336,11 +337,11 @@ public class DashboardFrame extends JFrame {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("HH:mm:ss");
         Timer t = new Timer(1000, e -> {
             String time = LocalTime.now().format(fmt);
-            lblClock.setText("<html><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + time + "</font></html>");
+            lblClock.setText("<html><nobr><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + time + "</font></nobr></html>");
         });
         t.start();
         String initialTime = LocalTime.now().format(fmt);
-        lblClock.setText("<html><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + initialTime + "</font></html>");
+        lblClock.setText("<html><nobr><font face='Segoe UI Emoji'>🕒</font>&nbsp;&nbsp;<font face='Monospaced'>" + initialTime + "</font></nobr></html>");
     }
 
     private void logout() {
