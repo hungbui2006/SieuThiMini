@@ -1,0 +1,28 @@
+# Java classes
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Build directories
+out/
+target/
+build_jar/
+*.txt
+!sources.txt
+!manifest.txt
+
+# IDE settings
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+bin/
+
+# Temporary files
+*.log
+tmp/
